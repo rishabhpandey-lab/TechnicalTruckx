@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TechnicalTruckx — Guided Journey</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div><p class="eyebrow">TechnicalTruckx</p><h1>Guided Support Journey</h1></div>
+  <form id="search-form" class="search" autocomplete="off"><label for="search-input">Search Journey ID</label><div class="search-row"><input id="search-input" placeholder="e.g. TT-AB12CD"><button type="submit">Search</button></div></form>
+</header>
+<section class="panel data-panel"><div class="section-heading"><p class="eyebrow">Optional information</p><h2>Data Entry</h2><p>These fields are independent of the flow and are not required to continue.</p></div><form id="optional-data" class="data-form data-grid">
+<label>DOT<input name="dot"></label><label>Caller Number<input name="callerNumber"></label><label>Caller Name<input name="callerName"></label><label>Owner Name<input name="ownerName"></label></form></section>
+<main class="layout"><section class="panel flow-panel"><div class="section-heading"><p class="eyebrow">Issue identification</p><h2>Choose a category</h2><p>Technical and Billing are the only starting categories. Issues are defined by the administrator.</p></div><div id="flow-steps" class="flow-steps"></div><div id="result-card" class="result-card hidden"></div></section></main>
+<section id="search-results" class="panel search-results hidden"></section>
+<section class="panel admin-panel"><div class="section-heading"><p class="eyebrow">Admin</p><h2>Issue & Flow Management</h2><p>Only administrators should use this area. Add or edit the issues shown after Technical or Billing, then build the next decision steps.</p></div><div class="admin-toolbar"><button id="refresh-admin" class="secondary">Refresh</button></div><div id="admin-editor"></div></section>
+<script src="flowCore.js"></script><script src="app.js"></script>
+</body></html>
