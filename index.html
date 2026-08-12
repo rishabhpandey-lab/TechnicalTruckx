@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Defined Flowchart</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">TechnicalTruckx</p>
+        <h1>Guided Flow Builder</h1>
+      </div>
+      <form id="search-form" class="search" autocomplete="off">
+        <label for="search-input">Search by unique number</label>
+        <div class="search-row">
+          <input id="search-input" type="search" placeholder="e.g. TT-AB12CD" />
+          <button type="submit">Search</button>
+        </div>
+      </form>
+    </header>
+
+    <section class="panel admin-panel" aria-labelledby="admin-title">
+      <div class="section-heading">
+        <p class="eyebrow">Admin setup</p>
+        <h2 id="admin-title">Define the selectable flow details</h2>
+        <p>Admins can change each step and option list. Users will only see these predefined choices.</p>
+      </div>
+      <form id="admin-flow-form" class="admin-form">
+        <div id="admin-steps" class="admin-steps"></div>
+        <div class="actions">
+          <button id="add-step" class="secondary" type="button">Add step</button>
+          <button id="restore-defaults" class="secondary" type="button">Restore defaults</button>
+          <button type="submit">Save admin flow</button>
+        </div>
+      </form>
+    </section>
+
+    <main class="layout">
+      <section class="panel flow-panel" aria-labelledby="flow-title">
+        <div class="section-heading">
+          <p class="eyebrow">Admin predefined details</p>
+          <h2 id="flow-title">Select the path that applies</h2>
+          <p>Users can only choose from admin-provided options. Each selection unlocks the next set of choices.</p>
+        </div>
+        <div id="flow-steps" class="flow-steps"></div>
+        <div class="actions">
+          <button id="reset-flow" class="secondary" type="button">Reset flow</button>
+          <button id="complete-flow" type="button" disabled>Generate unique number</button>
+        </div>
+        <div id="result-card" class="result-card hidden" aria-live="polite"></div>
+      </section>
+
+      <aside class="panel sticky-data" aria-labelledby="data-title">
+        <div class="section-heading">
+          <p class="eyebrow">Optional independent data</p>
+          <h2 id="data-title">Data sheet</h2>
+          <p>This information is not required to continue the flow. Empty fields stay visible as reminders.</p>
+        </div>
+        <form id="optional-data" class="data-form">
+          <label>Customer name<input name="customerName" type="text" placeholder="Enter later if needed" /></label>
+          <label>Vehicle / Asset ID<input name="vehicleId" type="text" placeholder="Optional" /></label>
+          <label>Contact email<input name="contactEmail" type="email" placeholder="Optional" /></label>
+          <label>Notes<textarea name="notes" rows="4" placeholder="Any detail for a future email"></textarea></label>
+        </form>
+        <div class="email-preview">
+          <h3>Future email format</h3>
+          <pre id="email-preview">Fill optional data to preview an email.</pre>
+        </div>
+      </aside>
+    </main>
+
+    <section id="search-results" class="panel search-results hidden" aria-live="polite"></section>
+
+    <script src="flowCore.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
